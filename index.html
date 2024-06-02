@@ -8,6 +8,7 @@
     <link rel="icon" href="img/thea cave icon.jpeg">
     <style>
         #formulario {
+            display: none;
             position: fixed;
             top: 50%;
             left: 50%;
@@ -81,7 +82,9 @@
             document.getElementById("loader").style.display = "none";
 
             if (localStorage.getItem("loggedIn") === "true") {
-                window.location.href = "inicio.html";
+                document.getElementById("inicio").style.display = "block";
+            } else {
+                document.getElementById("formulario").style.display = "block";
             }
         });
 
@@ -118,7 +121,8 @@
                     if (result.isConfirmed) {
                         localStorage.setItem("loggedIn", "true");
                         localStorage.setItem("currentUser", nombre); // Guardar el nombre del usuario
-                        window.location.href = "inicio.html";
+                        document.getElementById("formulario").style.display = "none";
+                        document.getElementById("inicio").style.display = "block";
                     }
                 });
             } else {
@@ -130,36 +134,43 @@
                 });
             }
         }
+
+        function logout() {
+            localStorage.removeItem('loggedIn');
+            localStorage.removeItem('currentUser');
+            window.location.href = 'index.html';
+        }
     </script>
 </head>
 <body background="img/Netflix-Background-prueba-1 (1).jpg">
     <div id="loader">
         <div class="spinner"></div>
     </div>
-    <header class="header">
+    <header class="header" id="inicio">
         <div class="menu container">
-            <a href="inicio.html" class="logo">Cave</a>
+            <a href="#" class="logo">Cave</a>
             <input type="checkbox" id="menu"/>
             <label for="menu">
                 <img src="img/menu.png" class="menu-icono" alt="menu">
             </label>
             <nav class="navbar">
                 <ul>
-                    <li><a href="inicio.html">Inicio</a></li>
+                    <li><a href="#">Inicio</a></li>
                     <li><a href="nosotros.html">Nosotros</a></li>
-                    <li><a href="peliculas.html">Peliculas</a></li>
+                    <li><a href="peliculas.html">Películas</a></li>
                     <li><a href="Series.html">Series</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
-            <a href="usuario.html" class="btn-1">Login</a>
+            <button onclick="logout()">Cerrar Sesión</button>
         </div>
         <div class="header-content container">
+            <h1>Bienvenido a Cave</h1>
         </div>
     </header>
-    <div class="formulario">
+    <div class="formulario" id="formulario">
         <center><h1>Inicio de sesión</h1></center>
-        <form id="formulario" onsubmit="validarLogin(event)">
+        <form onsubmit="validarLogin(event)">
             <div class="username">
                 <input type="text" id="nombre" name="nombre" placeholder="Por favor ingrese su nombre de usuario" required>
             </div>
@@ -179,3 +190,4 @@
     </div>
 </body>
 </html>
+
