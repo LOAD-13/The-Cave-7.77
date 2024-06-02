@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,8 +60,11 @@
             const savedName = localStorage.getItem('profileName');
             const savedDescription = localStorage.getItem('profileDescription');
             const savedAvatar = localStorage.getItem('avatarImage');
+            const currentUser = localStorage.getItem('currentUser'); // Recuperar el nombre del usuario actual
 
-            if (savedName) {
+            if (currentUser) {
+                document.querySelector('.titulo').innerText = currentUser;
+            } else if (savedName) {
                 document.querySelector('.titulo').innerText = savedName;
                 document.getElementById('nameInput').value = savedName;
             }
@@ -77,6 +79,7 @@
 
         function logout() {
             localStorage.removeItem('loggedIn');
+            localStorage.removeItem('currentUser'); // Limpiar el nombre del usuario al cerrar sesión
             window.location.href = 'index.html';
         }
 
@@ -109,7 +112,7 @@
         </div>
         <div class="perfil-usuario-body">
             <div class="perfil-usuario-bio">
-                <h3 class="titulo">Ingrese su nombre de usuario</h3>
+                <h3 class="titulo">Maria Alejandra De la Cruz</h3>
                 <p class="descripcion">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                     tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>

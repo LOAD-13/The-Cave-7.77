@@ -117,6 +117,7 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         localStorage.setItem("loggedIn", "true");
+                        localStorage.setItem("currentUser", nombre); // Guardar el nombre del usuario
                         window.location.href = "inicio.html";
                     }
                 });
