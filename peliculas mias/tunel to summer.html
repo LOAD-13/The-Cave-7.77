@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../img/thea cave icon.jpeg">
+    <style>
+        /* Estilos CSS para centrar el video */
+        .page-content {
+            text-align: center;
+        }
+
+        video {
+            width: 80%; /* Ajusta el ancho del video según sea necesario */
+            max-width: 800px; /* Establece un ancho máximo para el video */
+            height: auto; /* Permite que la altura del video se ajuste automáticamente */
+            margin: 0 auto; /* Centra el video horizontalmente */
+        }
+
+        .imagens {
+         background-image: url(img/banner\ tunel\ summer.webp); /* Ruta de tu imagen */
+        }
+
+    </style>
+    <script>
+        window.addEventListener("load", function() {
+        // Oculta la pantalla de carga
+        document.getElementById("loader").style.display = "none";
+        });
+        </script>
+    
+    </head>
+    <body>
+        <div id="loader">
+            <div class="spinner"></div>
+        </div>
+    <header class="header" >
+
+        <div id="header_bonito_pelis">
+            <div class="imagens imagen-fondo-pelis"></div>
+        </div>
+
+        <div class="menu container">
+
+            <a href="../index.html" class="logo">Cave</a>
+            <input type="checkbox" id="menu"/>
+            <label for="menu">
+                <img src="../img/menu.png" class="menu-icono" alt="menu">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../nosotros.html">Nosotros</a></li>
+                    <li><a href="../peliculas.html">Peliculas</a></li>
+                    <li><a href="../Series.html">Series</a></li>
+                    <li><a href="../contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <a href="../login.html" class="btn-1">Login</a>
+        </div>
+
+        <div class="header-content container">
+
+            <div class="header-1">
+                <img src="img/tunel to summer logo.png" alt="wa">
+                <a href="../Ben10.html" class="btn-2" id="play-video-1">Ver ahora</a>
+                
+            </div>
+            <div class="header-2">
+                <h1>Las mejores<br>peliculas </h1>
+                <img src="../img/play.png" alt="we">
+            </div>
+        </div>
+
+    </header>
+    <hr class="hr">
+    <div class="page-content">
+        <button id="ver-pelicula-btn">Ver Pelicula</button>
+        <div class="contenedor-principal" id="contenedor-principal"  >
+            <div class="recuadro-container" id="recuadro-container-trailer">
+                <!-- Recuadro de trailer -->
+                <div class="recuadro" id="trailer-recuadro">
+                    <h2>Trailer</h2>
+                    <center>
+                        <iframe width="600" height="300" src="https://www.youtube.com/embed/quNGzBv9arI?si=LVxOzWt_kTwQSO2R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </center>
+                </div>
+            </div>
+            <div class="recuadro-container" id="recuadro-container-sinopsis">
+                <!-- Recuadro de sinopsis -->
+                <div class="recuadro" id="sinopsis-recuadro">
+                    <h2>Sinopsis</h2>
+                    aoru Tono está de camino a casa desde la escuela cuando un día se adentra en un túnel, el famoso túnel de Urashima. A pesar de que se rumora que este túnel puede conceder cualquier deseo,
+                     la verdad es que si pasas demasiado tiempo allí, pierdes muchos años de vida.
+                <p> Descripcion de Tunel to Summer</p>
+                </div>
+            </div>
+        </div>
+        <h1 id="n-pelicula" style="display: none;"><center>Tunel to summer</center></h1>
+        <!-- Reproductor de video para la película -->
+        <center>
+            <iframe id="p-pelicula" loop controls style="display: none;" src="https://filemoon.sx/e/9dpy0mm4f2ax"
+             frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="640" height="360" allowfullscreen></iframe>
+        </center>
+        <!-- iframe para reproducir el tráiler de la película -->
+    </div>
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://the-cave-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    <footer class="footer container">
+        <h3>Cave</h3>
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../nosotros.html">Nosotros</a></li>
+            <li><a href="peliculas.html">Peliculas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+
+    </footer>
+    
+    <script src="../boton ver pelicula.js"></script>
+
+</body>
+</html>

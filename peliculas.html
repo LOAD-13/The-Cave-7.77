@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peliculas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/thea cave icon.jpeg">
+   
+	<script>
+		window.addEventListener("load", function() {
+		// Oculta la pantalla de carga
+		document.getElementById("loader").style.display = "none";
+		});
+		</script>
+	
+	</head>
+	<body>
+		<div id="loader">
+			<div class="spinner"></div>
+		</div>
+    <header  class="header">
+        <div id="header_bonito">
+                 <!-- Radio buttons para controlar las imágenes -->
+                 <input type="radio" name="imagen" id="imagen1" class="imagen-radio" checked>
+    <input type="radio" name="imagen" id="imagen2" class="imagen-radio">
+    <input type="radio" name="imagen" id="imagen3" class="imagen-radio">
+    <!-- Imágenes superpuestas -->
+    <div class="imagen1 imagen-fondo"></div>
+    <div class="imagen2 imagen-fondo"></div>
+    <div class="imagen3 imagen-fondo"></div>
+    <!-- Botones para cambiar la imagen -->
+    <label for="imagen1" class="btn-prev">&lt;</label>
+    <label for="imagen1" class="btn-next">&gt;</label>
+    </div>
+        <div class="menu container">
+
+            <a href="inicio.html" class="logo">Cave</a>
+            <input type="checkbox" id="menu"/>
+            <label for="menu">
+
+                <img src="img/menu.png" class="menu-icono" alt="menu">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="inicio.html" >Inicio</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="peliculas.html">Peliculas</a></li>
+                    <li><a href="Series.html">Series</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <a href="usuario.html" class="btn-1"><img src="img/logo persona2.png"alt="User" style="width: 24px; height: 24px;"></a>
+        </div>
+
+        <div class="header-content container">
+
+            <div class="header-1">
+                
+                <a href="ver_ahora.html" class="btn-2" id="play-video-1">Ver ahora</a>
+                
+            </div>
+            <div class="header-2">
+                <h1>Las mejores<br>peliculas </h1>
+                <img src="img/play.png" alt="we">
+            </div>
+        </div>
+    </header>
+    <main>
+
+		<div id="letrasBusqueda">
+			<!-- Agrega más botones según las letras del abecedario -->
+		</div>
+
+        <div class="buscador-peliculas">
+            <input type="text" id="input-busqueda" placeholder="Buscar películas...">
+            <button id="btn-buscar">Buscar</button>
+        </div>
+        
+        <div id="resultados-busqueda" class="contenedor-resultados">
+            <!-- Ejemplo de un resultado de búsqueda -->
+            <div class="resultado-pelicula">
+               
+            </div>
+        </div>
+
+
+		
+			</div>
+
+				<button role="button" id="flecha-izquierda" class="flecha-izquierda" style="display: none;"><i class="fas fa-angle-left"></i></button>
+
+				
+
+
+
+				<button role="button" id="flecha-derecha" class="flecha-derecha" style="display: none;"><i class="fas fa-angle-right"></i></button>
+		</div>
+
+		<div class="peliculas-accion contenedor">
+			<div class="contenedor-titulo-controles">
+				<h3>Películas de Acción</h3>
+				<div class="indicadores-accion"></div> <!-- Asegúrate de que este identificador sea único -->
+			</div>
+		
+			<div class="contenedor-principal">
+				<button role="button" id="flecha-izquierda-accion" class="flecha-izquierda"><i class="fas fa-angle-left"></i></button> <!-- Asegúrate de que este identificador sea único -->
+		
+				<div class="contenedor-carousel-accion"> <!-- Asegúrate de que este identificador sea único -->
+					<div class="carousel-accion"> <!-- Asegúrate de que este identificador sea único -->
+						<div class="pelicula">
+							<a href="peliculas/iroman3.html"><img src="img/iron man 3 600.jpg" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="peliculas/venom.html"><img src="img/venom 600.jpeg" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="peliculas/venom 2 carnage.html"><img src="img/venom 2 600.webp" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="peliculas/Spidey NowayHome.html"><img src="img/spiderman 600.jpg" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="peliculas/infinity.html"><img src="img/infinity 600.jpg" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="peliculas/endgame.html"><img src="img/end game 600.jpg" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="peliculas/mad max.html"><img src="img/mad max 600.jpg" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="peliculas/durodematar.html"><img src="img/duro de matar 600.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="peliculas/duro de matar good day.html"><img src="img/duro de matar gooday 600.jpg" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="peliculas/ThorRagnarok.html"><img src="img/ragnarok 600.jpeg" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="peliculas/ThorLoveAndThunder.html"><img src="img/thor love 600.jpg" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="peliculas/El origen de un imperio.html"><img src="img/300 600 real.jpg" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="peliculas/Project power .html"><img src="img/proyect power 600.jpg" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="peliculas/La vieja guardia.html"><img src="img/old guard.jpg" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/5.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/6.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/7.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/1.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/2.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/3.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/4.png" alt=""></a>
+						</div>
+					</div>
+				</div>
+		
+				<button role="button" id="flecha-derecha-accion" class="flecha-derecha"><i class="fas fa-angle-right"></i></button> <!-- Asegúrate de que este identificador sea único -->
+			</div>
+		</div>
+
+		<div class="peliculas-terror contenedor">
+			<div class="contenedor-titulo-controles">
+				<h3>Películas de Terror</h3>
+				<div class="indicadores-terror"></div>
+			</div>
+			
+			<div class="contenedor-principal">
+				<button role="button" id="flecha-izquierda-terror" class="flecha-izquierda"><i class="fas fa-angle-left"></i></button>
+				<div class="contenedor-carousel-terror">
+					<div class="carousel-terror">
+						<div class="pelicula">
+							<a href="peliculas/ResidentEvil.html"><img src="img/Resident-Evil-Welcome-to-Raccoon-City-1-600x338.jpg" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/2.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/3.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/4.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/5.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/6.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/7.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/1.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/2.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/3.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/1.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/2.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/3.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/4.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/5.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/6.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/7.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/1.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/2.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/3.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/4.png" alt=""></a>
+						</div>
+					</div>
+				</div>
+				<button role="button" id="flecha-derecha-terror" class="flecha-derecha"><i class="fas fa-angle-right"></i></button>
+			</div>
+		</div>
+
+		<div class="peliculas-comedia contenedor">
+			<div class="contenedor-titulo-controles">
+				<h3>Películas de Comedia</h3>
+				<div class="indicadores-comedia"></div>
+			</div>
+			
+			<div class="contenedor-principal">
+				<button role="button" id="flecha-izquierda-comedia" class="flecha-izquierda"><i class="fas fa-angle-left"></i></button>
+				<div class="contenedor-carousel-comedia">
+					<div class="carousel-comedia">
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/1.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/2.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/3.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/4.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/5.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/6.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/7.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/1.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/2.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/3.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/1.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/2.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/3.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/4.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/5.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/6.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/7.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/1.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/2.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/3.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/4.png" alt=""></a>
+						</div>
+					</div>
+				</div>
+				<button role="button" id="flecha-derecha-comedia" class="flecha-derecha"><i class="fas fa-angle-right"></i></button>
+			</div>
+		</div>
+
+		<div class="peliculas-culto contenedor">
+			<div class="contenedor-titulo-controles">
+				<h3>Películas de Culto</h3>
+				<div class="indicadores-culto"></div>
+			</div>
+			
+			<div class="contenedor-principal">
+				<button role="button" id="flecha-izquierda-culto" class="flecha-izquierda"><i class="fas fa-angle-left"></i></button>
+				<div class="contenedor-carousel-culto">
+					<div class="carousel-culto">
+						<div class="pelicula">
+							<a href="peliculas/Rhapsody.html"><img src="img/bohemio 600.jpg" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="peliculas/robot dreams.html"><img src="img/carrusel robot dreams.jpg" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/3.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/4.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/5.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/6.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/7.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/1.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/2.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/3.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/1.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/2.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/3.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/4.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/5.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/6.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/7.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/1.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="img/imagenes carrusel/2.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="Frieren Serie/frieren.html"><img src="Frieren Serie/imagenes/frieren carrusel.jpg" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="Bocchi Serie/bocchi cinema.html"><img src="Bocchi Serie/imagenes/bocchi carrusel.jpg" alt=""></a>
+						</div>
+					</div>
+				</div>
+				<button role="button" id="flecha-derecha-culto" class="flecha-derecha"><i class="fas fa-angle-right"></i></button>
+			</div>
+		</div>
+		
+		
+		
+
+		
+	</main>
+
+	<footer class="footer container">
+        <h3>Cave</h3>
+        <ul>
+            <li><a href="inicio.html">Inicio</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="peliculas.html">Peliculas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+
+    </footer>
+
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <script src="nose porque tanto script.js"></script>
+	
+
+</body>
+
+</html>

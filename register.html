@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="../img/thea cave icon.jpeg">
+
+    <style>
+        #formulario {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 1000px;
+            max-width: 90%;
+            text-align: center;
+            color: #333;
+        }
+        .formulario {
+            text-align: center;
+        }
+        .formulario h1 {
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+        .formulario input[type="text"],
+        .formulario input[type="email"],
+        .formulario input[type="password"] {
+            width: 300px;
+            height: 40px;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        .formulario input[type="text"]:focus,
+        .formulario input[type="email"]:focus,
+        .formulario input[type="password"]:focus {
+            border-color: #007bff;
+        }
+        .formulario button {
+            width: 100%;
+            height: 40px;
+            background-color: red;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .formulario button:hover {
+            background-color: rgb(90, 9, 9);
+        }
+    </style>
+    <!-- SweetAlert2 library -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        function registrarUsuario(event) {
+            event.preventDefault();
+
+            const nombre = document.getElementById('nombre').value;
+            const correo = document.getElementById('correo').value;
+            const contrasena = document.getElementById('contrasena').value;
+
+            const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+            usuarios.push({ nombre, correo, contrasena });
+
+            localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            });
+
+            swalWithBootstrapButtons.fire({
+                title: 'Registro exitoso',
+                text: 'Ahora puedes iniciar sesión.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'index.html'; // Redirigir a la página de inicio de sesión
+                }
+            });
+        }
+    </script>
+</head>
+<body background="img/Netflix-Background-prueba-1 (1).jpg">
+    <div class="formulario">
+        <center><h1>Registro</h1></center>
+        <form id="formulario" onsubmit="registrarUsuario(event)">
+            <div class="username">
+                <input type="text" id="nombre" name="nombre" placeholder="Por favor ingrese su nombre de usuario" required>
+            </div>
+            <div class="email">
+                <input type="email" id="correo" name="correo" placeholder="Por favor ingrese su correo electrónico" required>
+            </div>
+            <div class="password">
+                <input type="password" id="contrasena" name="contrasena" placeholder="Por favor ingrese su contraseña" required>
+            </div>
+            <div class="registrarse">
+                <button type="submit" class="btn-1">Registrarse</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

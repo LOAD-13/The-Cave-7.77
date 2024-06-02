@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuario</title>
+    <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="icon" href="img/thea cave icon.jpeg">
+    <link rel="stylesheet" href="style_de_usuario.css">
+    
+    <script>
+        function changeAvatar() {
+            const fileInput = document.getElementById('avatarInput');
+            fileInput.click();
+        }
+
+        function updateAvatar(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const avatarImage = document.getElementById('avatarImage');
+                    avatarImage.src = e.target.result;
+                    localStorage.setItem('avatarImage', e.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function openModal() {
+            document.getElementById('editModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('editModal').style.display = 'none';
+        }
+
+        function saveChanges() {
+            const newName = document.getElementById('nameInput').value;
+            const newDescription = document.getElementById('descriptionInput').value;
+
+            document.querySelector('.titulo').innerText = newName;
+            document.querySelector('.descripcion').innerText = newDescription;
+
+            localStorage.setItem('profileName', newName);
+            localStorage.setItem('profileDescription', newDescription);
+
+            closeModal();
+            Swal.fire({
+                title: 'Perfil Actualizado',
+                text: '¡Los cambios han sido guardados exitosamente!',
+                icon: 'success',
+                confirmButtonText: 'Entendido'
+            });
+        }
+
+        function loadProfileDetails() {
+            const savedName = localStorage.getItem('profileName');
+            const savedDescription = localStorage.getItem('profileDescription');
+            const savedAvatar = localStorage.getItem('avatarImage');
+
+            if (savedName) {
+                document.querySelector('.titulo').innerText = savedName;
+                document.getElementById('nameInput').value = savedName;
+            }
+            if (savedDescription) {
+                document.querySelector('.descripcion').innerText = savedDescription;
+                document.getElementById('descriptionInput').value = savedDescription;
+            }
+            if (savedAvatar) {
+                document.getElementById('avatarImage').src = savedAvatar;
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('loggedIn');
+            window.location.href = 'index.html';
+        }
+
+        window.onload = loadProfileDetails;
+
+        window.onclick = function (event) {
+            const modal = document.getElementById('editModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <section class="seccion-perfil-usuario">
+        <div class="perfil-usuario-header">
+            <div class="perfil-usuario-portada">
+                <div class="perfil-usuario-avatar">
+                    <img id="avatarImage" src="../../../../Joaquin/Pictures/rei fondo.jpg" alt="img-avatar">
+                    <button type="button" class="boton-avatar" onclick="changeAvatar()">
+                        <i class="far fa-image"></i>
+                    </button>
+                    <input type="file" id="avatarInput" accept="image/*" style="display: none;" onchange="updateAvatar(event)">
+                </div>
+                <button type="button" class="boton-portada" onclick="openModal()">
+                    <i class="far fa-image"></i> Cambiar Nombre de Perfil
+                </button>
+            </div>
+        </div>
+        <div class="perfil-usuario-body">
+            <div class="perfil-usuario-bio">
+                <h3 class="titulo">Maria Alejandra De la Cruz</h3>
+                <p class="descripcion">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="perfil-usuario-footer">
+                <ul class="lista-datos">
+                    <li><i class="icono fas fa-map-signs"></i> Direccion de usuario:</li>
+                    <li><i class="icono fas fa-phone-alt"></i> Telefono:</li>
+                    <li><i class="icono fas fa-briefcase"></i> Trabaja en.</li>
+                    <li><i class="icono fas fa-building"></i> Cargo</li>
+                </ul>
+                <ul class="lista-datos">
+                    <li><i class="icono fas fa-map-marker-alt"></i> Ubicacion.</li>
+                    <li><i class="icono fas fa-calendar-alt"></i> Fecha nacimiento.</li>
+                    <li><i class="icono fas fa-user-check"></i> Registro.</li>
+                    <li><i class="icono fas fa-share-alt"></i> Redes sociales.</li>
+                </ul>
+            </div>
+            <div class="redes-sociales">
+                <a href="" class="boton-redes facebook fab fa-facebook-f"><i class="icon-facebook"></i></a>
+                <a href="" class="boton-redes twitter fab fa-twitter"><i class="icon-twitter"></i></a>
+                <a href="" class="boton-redes instagram fab fa-instagram"><i class="icon-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para cambiar nombre y descripción -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <h2>Editar Perfil</h2>
+            <label for="nameInput">Nombre:</label>
+            <input type="text" id="nameInput" value="....">
+            <label for="descriptionInput">Descripción:</label>
+            <textarea id="descriptionInput" rows="4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea>
+            <button type="button" onclick="saveChanges()">Guardar Cambios</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <h3>Cave</h3>
+        <ul>
+            <li><a href="inicio.html">Inicio</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="peliculas.html">Peliculas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <button class="logout-btn" onclick="logout()">Cerrar Sesión</button>
+    </footer>
+</body>
+
+</html>

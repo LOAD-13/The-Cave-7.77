@@ -1,0 +1,1398 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+
+}
+  body{
+    background-color: #030303;
+    font-family: "Bebas Neue", cursive;
+    color: #FFFFFF;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .header {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 30vh;
+    display: flex;
+    align-items: top;
+    position: relative; 
+    
+  }
+
+  .menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+
+  .logo{
+    font-size: 35px;
+    color: #FFFFFF;
+
+  }
+
+  .menu .navbar ul li {
+    position: relative;
+    float: left;
+    z-index: 20;
+  }
+
+  .menu .navbar ul li a {
+    font-size: 22px;
+    padding: 20px;
+    color: #FFFFFF;
+    display: block;
+    z-index: 20;
+  }
+
+  .menu .navbar ul li a:hover {
+    color: #FF2F28;
+    z-index: 20;
+  }
+
+  #menu {
+    display: none;
+  }
+
+  .menu-icono {
+    width: 25px;
+  }
+
+  .menu label {
+    cursor: pointer;
+    display: none;
+  }
+
+  .header-content {
+    display: flex;
+    width: 100%;
+  }
+
+  .header-1 {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-self: flex-end;
+    z-index: 10;
+  }
+
+  .header-1 img {
+    width: 300px;
+  }
+
+  .header-2{
+    width: 50%;
+    margin-top: 80px;
+    text-align: end;
+    z-index: 10;
+  }
+
+  .header-2 h1 {
+    color: #FFFFFF72;
+    font-size: 80px;
+    line-height: 80px;
+  }
+
+  .header-2 img{
+    width: 70px;
+  }
+
+  .btn-1 {
+    display: inline-block;
+    padding: 7px 20px;
+    background-color: #FF2F28;
+    color: #FFFFFF;
+    font-size: 20px;
+  }
+
+  .btn-2 {
+    width: 110px;
+    display: inline-block;
+    padding: 7px 20px;
+    background-color: #FF2F28;
+    font-size: 20px;
+    margin-top: 30px;
+    color: #FFFFFF;
+  }
+
+  .movies {
+    padding: 50px 0 0 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h2{
+    font-size: 35px;
+    margin-bottom: 20px;
+  }
+
+  hr {
+    border: 1px solid #FF2F28;
+    width: 50%;
+    margin-bottom: 40px;
+  }
+
+  .box-container-1,
+  .box-container-2,
+  .box-container-3{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+  }
+
+  .box-1,
+  .box-2,
+  .box-3 {
+    border-radius: 5px;
+    z-index: 1000;
+    display: none;
+  }
+
+  .box-1:nth-child(1),
+  .box-1:nth-child(2),
+  .box-1:nth-child(3),
+  .box-1:nth-child(4){
+    display: inline-block;
+  }
+
+  .box-2:nth-child(1),
+  .box-2:nth-child(2),
+  .box-2:nth-child(3),
+  .box-2:nth-child(4){
+    display: inline-block;
+  }
+  .box-3:nth-child(1),
+  .box-3:nth-child(2),
+  .box-3:nth-child(3),
+  .box-3:nth-child(4){
+    display: inline-block;
+  }
+
+  .load-more{
+    margin-top: 40px;
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 15px;
+    border: 1px solid #FF2F28;
+    color: #FF2F28;
+    font-size: 16px;
+    cursor: pointer;
+    align-self: flex-end;
+  }
+
+  .load-more:hover{
+    background-color: #FF2F28;
+    color: #FFFFFF;
+  }
+
+  .content img {
+    width: 100%;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+  } 
+
+  .content img:hover{
+    transform: scale(1.1);
+    transform-origin: center;
+  }
+
+  
+
+  .conten h3{
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .content {
+    color: #FFFFFF;
+    font-size: 20px;
+  }
+
+  .footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 0;
+    margin-top: 100px;
+    border-top: 1px solid #ff2f2848;
+  }
+
+  .footer ul{
+    display: flex;
+  }
+
+  .footer h3{
+    font-size: 30px;
+  }
+
+  .footer a{
+    color: #FFFFFF;
+    font-size: 20px;
+    margin-right: 20px;
+    display: block;
+  }
+
+  .footer a:hover{
+    color: #FF2F28;
+  }
+
+  @media (max-width:991px){
+
+    .menu {
+      padding: 20px;
+    }
+
+    .menu label {
+      display: initial;
+    }
+
+    .menu .navbar {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: #030303;
+      display: none;
+      z-index: 20;
+    }
+
+    .menu .navbar ul li{
+      width: 100%;
+      z-index: 20;
+    }
+
+    .btn-1{
+      display: none;
+      
+    }
+
+    #menu:checked ~ .navbar{
+      display: initial;
+    }
+
+    .header-content{
+      flex-direction: column;
+      padding: 180px 30px 30px 30px;
+    }
+
+    .header-1{
+      width: 100%;
+      align-items: center;
+    }
+    
+    .header-2{
+      width: 100%;
+      text-align: center;
+    }
+
+    .movies{
+      padding: 30px;
+    }
+
+    .footer{
+      margin-top: 30px;
+      padding: 30px;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .footer ul{
+      margin-top: 15px;
+      justify-content: center;
+    }
+    
+  }
+  .contenedor {
+    width: 90%;
+    margin: auto;
+  }
+ 
+  
+  /* ---- ----- ----- Contenedor Titulo y Controles ----- ----- ----- */
+  .contenedor-titulo-controles {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+  }
+  
+  .contenedor-titulo-controles h3 {
+    color: #fff;
+    font-size: 30px;
+  }
+  
+  .contenedor-titulo-controles .indicadores button {
+    background: #fff;
+    height: 3px;
+    width: 10px;
+    cursor: pointer;
+    border: none;
+    margin-right: 2px;
+  }
+  
+  .contenedor-titulo-controles .indicadores button:hover,
+  .contenedor-titulo-controles .indicadores button.activo {
+    background: red;
+  }
+  
+  
+  /* ---- ----- ----- Contenedor Principal y Flechas ----- ----- ----- */
+  .peliculas-recomendadas {
+    margin-bottom: 70px;
+  }
+  
+  .peliculas-recomendadas .contenedor-principal {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .peliculas-recomendadas .contenedor-principal .flecha-izquierda,
+  .peliculas-recomendadas .contenedor-principal .flecha-derecha {
+    position: absolute;
+    border: none;
+    background: rgba(0,0,0,0.3);
+    font-size: 40px;
+    height: 50%;
+    top: calc(50% - 25%);
+    line-height: 40px;
+    width: 50px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 500;
+    transition: .2s ease all;
+  }
+  
+  .peliculas-recomendadas .contenedor-principal .flecha-izquierda:hover,
+  .peliculas-recomendadas .contenedor-principal .flecha-derecha:hover {
+    background: rgba(0,0,0, .9);
+  }
+  
+  .peliculas-recomendadas .contenedor-principal .flecha-izquierda {
+    left: 0;
+  }
+  
+  .peliculas-recomendadas .contenedor-principal .flecha-derecha {
+    right: 0;
+  }
+  
+  /* ---- ----- ----- Carousel ----- ----- ----- */
+  .peliculas-recomendadas .contenedor-carousel {
+    width: 100%;
+    padding: 20px 0;
+    overflow: hidden;
+    scroll-behavior: smooth;
+  }
+  
+  .peliculas-recomendadas .contenedor-carousel .carousel {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+  .peliculas-recomendadas .contenedor-carousel .carousel .pelicula {
+    min-width: 20%;
+    transition: .3s ease all;
+    box-shadow: 5px 5px 10px rgba(0,0,0, .3);
+  }
+  
+  .peliculas-recomendadas .contenedor-carousel .carousel .pelicula.hover {
+    transform: scale(1.2);
+    transform-origin: center;
+  }
+  
+  .peliculas-recomendadas .contenedor-carousel .carousel .pelicula img {
+    width: 100%;
+    vertical-align: top;
+  }
+  
+  /* ---- ----- ----- Media Queries ----- ----- ----- */
+  @media screen and (max-width: 800px) {
+    header .logotipo {
+      margin-bottom: 10px;
+      font-size: 30px;
+    }
+  
+    header .contenedor {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .pelicula-principal {
+      font-size: 14px;
+    }
+  
+    .pelicula-principal .descripcion {
+      max-width: 100%;
+    }
+  
+    .peliculas-recomendadas .contenedor-carousel {
+      overflow: visible;
+    }
+  
+    .peliculas-recomendadas .contenedor-carousel .carousel {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+  
+    .peliculas-recomendadas .indicadores,
+    .peliculas-recomendadas .flecha-izquierda,
+    .peliculas-recomendadas .flecha-derecha {
+      display: none;
+    }
+  }
+  /* ---- ----- ----- Películas de Acción ----- ----- ----- */
+
+  .peliculas-accion .contenedor-titulo-controles h3 {
+    color: #fff;
+    font-size: 30px;
+}
+.peliculas-accion {
+  margin-bottom: 70px;
+}
+
+
+.peliculas-accion .contenedor-titulo-controles .indicadores button {
+    background: #fff;
+    height: 3px;
+    width: 10px;
+    cursor: pointer;
+    border: none;
+    margin-right: 2px;
+}
+
+.peliculas-accion .contenedor-titulo-controles .indicadores button:hover,
+.peliculas-accion .contenedor-titulo-controles .indicadores button.activo {
+    background: red;
+}
+
+.peliculas-accion .contenedor-principal {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.peliculas-accion .contenedor-principal .flecha-izquierda,
+.peliculas-accion .contenedor-principal .flecha-derecha {
+    position: absolute;
+    border: none;
+    background: rgba(0,0,0,0.3);
+    font-size: 40px;
+    height: 50%;
+    top: calc(50% - 25%);
+    line-height: 40px;
+    width: 50px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 500;
+    transition: .2s ease all;
+}
+
+.peliculas-accion .contenedor-principal .flecha-izquierda:hover,
+.peliculas-accion .contenedor-principal .flecha-derecha:hover {
+    background: rgba(0,0,0, .9);
+}
+
+.peliculas-accion .contenedor-principal .flecha-izquierda {
+    left: 0;
+}
+
+.peliculas-accion .contenedor-principal .flecha-derecha {
+    right: 0;
+}
+
+.peliculas-accion .contenedor-carousel {
+    width: 100%;
+    padding: 20px 0;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.peliculas-accion .contenedor-carousel .carousel {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.peliculas-accion .contenedor-carousel .carousel .pelicula {
+    min-width: 20%;
+    transition: .3s ease all;
+    box-shadow: 5px 5px 10px rgba(0,0,0, .3);
+}
+
+.peliculas-accion .contenedor-carousel .carousel .pelicula.hover {
+    transform: scale(1.2);
+    transform-origin: center;
+}
+
+.peliculas-accion .contenedor-carousel .carousel .pelicula img {
+    width: 100%;
+    vertical-align: top;
+}
+  .imagen-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  .imagen-fondo-pelis {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 1; /* Cambiado a 1 para que la imagen sea visible por defecto */
+    transition: opacity 0.5s ease-in-out;
+}
+  #imagen1:checked ~ .imagen1 {
+    opacity: 1;
+  }
+  .imagen1 {
+    background-image: url(img/thor.jpeg);
+  }
+  
+  #imagen2:checked ~ .imagen2 {
+    opacity: 1;
+  }
+  .imagen2 {
+    background-image: url(img/spidey.jpeg);
+  }
+  #imagen3:checked ~ .imagen3 {
+    opacity: 1;
+  }
+  .imagen3 {
+    background-image: url(img/avengers\ 1080.png);
+  }
+  .btn-prev, .btn-next {
+    color: white;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 15px;
+    border-radius: 5px;
+    position: relative; 
+    z-index: 5; 
+  }
+  .btn-prev {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+  }
+  .btn-next {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+  }
+  .imagen-radio {
+    display: none;
+  }
+  #header_bonito{
+    min-height: 70vh;
+  }
+
+  #header_bonito_pelis{
+    min-height: 40vh;
+  }
+
+  .contacto {
+    text-align: center;
+    background-color: #f2f2f2; /* Color de fondo */
+    border: 2px solid #ccc; /* Borde */
+    border-radius: 10px; /* Borde redondeado */
+    padding: 20px; /* Espaciado interno */
+    margin: 20px auto; /* Margen externo y centrado horizontalmente */
+    max-width: 800px; /* Ancho máximo del cuadro */
+    color: black;
+}
+.redes-sociales {
+display: flex;
+justify-content: center; /* Centra los elementos horizontalmente */
+align-items: center; /* Centra los elementos verticalmente */
+}
+
+.redes-sociales a {
+margin: 0 10px; /* Espacio horizontal entre los elementos */
+display: inline-block; /* Para que el margen funcione */
+}
+
+.redes-sociales img {
+width: 50px; /* Ajusta el tamaño de las imágenes */
+height: auto; /* Mantiene la proporción de aspecto */
+}
+.resumen {
+  background-color: #f2f2f2; /* Color de fondo */
+  border: 2px solid #ccc; /* Borde */
+  border-radius: 10px; /* Borde redondeado */
+  padding: 20px; /* Espaciado interno */
+  margin: 20px auto; /* Margen externo y centrado horizontalmente */
+  max-width: 800px; /* Ancho máximo del cuadro */
+  color: black;
+}
+.btn-visitanos {
+  display: block;
+  margin: 20px auto 0;
+  padding: 7px 20px;
+  background-color: #FF2F28;
+  color: #FFFFFF;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  max-width: 100px;
+}
+
+.btn-visitanos:hover {
+  background-color: #FF524D; /* Cambia el color de fondo al pasar el mouse */
+}
+.map-container{
+  
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%;
+  width: 1500px; /* Definir el ancho deseado */
+  height: 100px; /* Definir la altura deseada */
+   margin: auto; /* Centrar el contenedor */
+
+}
+.map-container iframe{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  
+}
+/* Estilos para el contenedor del buscador */
+.buscador-peliculas {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilos para el campo de entrada */
+#input-busqueda {
+  padding: 10px;
+  border: 2px solid #FF2F28;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-right: 10px;
+  width: 300px;
+}
+
+/* Estilos para el botón de búsqueda */
+#btn-buscar {
+  padding: 10px 20px;
+  background-color: #FF2F28;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#btn-buscar:hover {
+  background-color: #FF524D;
+}
+
+/* Estilos para el contenedor del resultado de búsqueda */
+.contenedor-resultados {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten automáticamente en varias líneas */
+  justify-content: flex-start; /* Alinea los elementos al inicio del contenedor */
+}
+
+/* Estilos para cada resultado de búsqueda */
+.resultado-pelicula {
+  margin-right: 20px; /* Espacio entre cada película */
+  margin-bottom: 20px; /* Espacio debajo de cada película */
+}
+
+/* Estilos para la imagen de la película */
+.resultado-pelicula img {
+  width: 150px; /* Tamaño de la imagen */
+  height: auto; /* Altura automática para mantener la proporción */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Estilos para el título de la película */
+.resultado-pelicula h3 {
+  font-size: 16px; /* Tamaño del título */
+  margin-top: 10px; /* Espacio arriba del título */
+  color: #FFFFFF; /* Color del texto */
+}
+
+
+/* Estilos para el botón "Ver Trailer" */
+#ver-pelicula-btn {
+  font-family: "Bebas Neue", cursive;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #FF2F28;
+  color: #FFFFFF;
+  font-size: 20px;
+  border: none;
+  border-radius: 0px;
+  cursor: pointer;
+  margin-bottom: 36px;
+}
+
+#ver-pelicula-btn:hover {
+  background-color: #FF524D; /* Cambia el color de fondo al pasar el mouse */
+}
+
+/* Estilos para el contenedor principal */
+.contenedor-principal {
+  display: flex;
+  flex-direction: row; /* Alinea los elementos en fila */
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea si no caben */
+}
+
+/* Estilos para los contenedores de recuadros */
+.recuadro-container {
+  width: 50%; /* Ocupa la mitad del ancho del contenedor principal */
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+/* Estilos para cada recuadro */
+.recuadro {
+  padding: 20px;
+  background-color: #1f1f1f;
+  color: #FFFFFF;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+/* Estilos para el recuadro de sinopsis */
+#recuadro-container-sinopsis {
+  margin-top: 120px; /* Agrega un margen superior para desplazar el recuadro de sinopsis hacia abajo */
+}
+.hr {
+  height: 5px; /* Grosor de la línea */
+  width: 100%; /* Ancho de la línea */
+  margin-top: 20px;
+  border: none; /* Elimina el borde predeterminado */
+  background-color: #1f1f1f; /* Cambia el color de fondo */
+}
+
+#letrasBusqueda {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Alinear los botones al centro */
+  margin-top: 20px;
+}
+
+/* Estilos para los botones de búsqueda por letra */
+.letra-busqueda-container {
+display: flex;
+justify-content: space-around;
+padding: 10px 20px;
+margin-top: 10px; /* Espacio arriba de los botones */
+}
+
+.letra-busqueda {
+  background-color: transparent;
+  border: none;
+  color: #333; /* Color del texto */
+  font-size: 18px; /* Tamaño de fuente ligeramente aumentado */
+  padding: 10px 20px; /* Espaciado interno aumentado */
+  margin: 5px; /* Espaciado entre los botones */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.letra-busqueda:hover {
+  background-color: #f0f0f0; /* Color de fondo al pasar el mouse */
+  animation: tra 0.5s alternate;
+  pointer-events: auto; /* Vuelve a activar los eventos de puntero al pasar el mouse */
+}
+
+.letra-busqueda-container:hover {
+  animation: tra 0.5s alternate;
+}
+
+@keyframes tra {
+  from {
+    transform: translateY(20px); /* Mover 40px a la derecha */
+  } 
+  to {
+    transform: translateY(-20px); /* Mover 40px a la izquierda */
+  }
+}
+
+.pelicula-busqueda img {
+  margin-top: 40px;
+  margin-left: 48px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.pelicula-busqueda img:hover{
+  transform: scale(1.1);
+    transform-origin: center;
+}
+
+.pelicula-busqueda div {
+  flex: 1; /* Que la sinopsis ocupe todo el espacio restante */
+  margin-top: 20px; /* Espacio superior entre la imagen y la sinopsis */
+  max-width: 250px;
+  margin-left: 48px;
+  margin-bottom: 20px;
+}
+
+/* Estilos para el segundo carrusel de películas de acción */
+
+.peliculas-recomendadas .contenedor-principal {
+  position: relative;
+}
+
+/* Contenedor principal del carrusel */
+.peliculas-accion .contenedor-principal {
+  position: relative;
+}
+
+/* Flechas de navegación */
+.peliculas-accion .flecha-izquierda,
+.peliculas-accion .flecha-derecha {
+  z-index: 2; /* Asegurar que las flechas estén sobre el carrusel */
+}
+
+/* Contenedor del carrusel */
+.peliculas-accion .contenedor-carousel-accion {
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Elementos individuales del carrusel */
+.peliculas-accion .carousel-accion {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+/* Imágenes de las películas */
+.peliculas-accion .carousel-accion .pelicula {
+  min-width: 20%; /* Ajustar el tamaño de las películas */
+  transition: .3s ease all;
+  box-shadow: 5px 5px 10px rgba(0,0,0, .3);
+}
+
+/* Efecto de aumento al pasar el mouse sobre las películas */
+.peliculas-accion .carousel-accion .pelicula.hover {
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+/* Estilo para las imágenes */
+.peliculas-accion .carousel-accion .pelicula img {
+  width: 100%;
+  vertical-align: top;
+}
+
+/* Estilos para el carrusel de películas de terror */
+.peliculas-terror {
+  margin-bottom: 70px;
+}
+
+.peliculas-terror .contenedor-principal {
+  position: relative;
+}
+
+.peliculas-terror .flecha-izquierda,
+.peliculas-terror .flecha-derecha {
+  z-index: 2; /* Asegurar que las flechas estén sobre el carrusel */
+}
+
+.peliculas-terror .contenedor-carousel-terror {
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.peliculas-terror .carousel-terror {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.peliculas-terror .carousel-terror .pelicula {
+  min-width: 20%; /* Ajustar el tamaño de las películas */
+  transition: .3s ease all;
+  box-shadow: 5px 5px 10px rgba(0,0,0, .3);
+}
+
+.peliculas-terror .carousel-terror .pelicula.hover {
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+.peliculas-terror .carousel-terror .pelicula img {
+  width: 100%;
+  vertical-align: top;
+}
+
+/* Estilos para el carrusel de películas de comedia */
+.peliculas-comedia .contenedor-principal {
+  position: relative;
+}
+.peliculas-comedia {
+  margin-bottom: 70px;
+}
+
+
+.peliculas-comedia .flecha-izquierda,
+.peliculas-comedia .flecha-derecha {
+  z-index: 2; /* Asegurar que las flechas estén sobre el carrusel */
+}
+
+.peliculas-comedia .contenedor-carousel-comedia {
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.peliculas-comedia .carousel-comedia {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.peliculas-comedia .carousel-comedia .pelicula {
+  min-width: 20%; /* Ajustar el tamaño de las películas */
+  transition: .3s ease all;
+  box-shadow: 5px 5px 10px rgba(0,0,0, .3);
+}
+
+.peliculas-comedia .carousel-comedia .pelicula.hover {
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+.peliculas-comedia .carousel-comedia .pelicula img {
+  width: 100%;
+  vertical-align: top;
+}
+
+/* Estilos para el carrusel de películas de culto */
+.peliculas-culto .contenedor-principal {
+  position: relative;
+}
+.peliculas-culto {
+  margin-bottom: 70px;
+}
+
+
+.peliculas-culto .flecha-izquierda,
+.peliculas-culto .flecha-derecha {
+  z-index: 2; /* Asegurar que las flechas estén sobre el carrusel */
+}
+
+.peliculas-culto .contenedor-carousel-culto {
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.peliculas-culto .carousel-culto {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.peliculas-culto .carousel-culto .pelicula {
+  min-width: 20%; /* Ajustar el tamaño de las películas */
+  transition: .3s ease all;
+  box-shadow: 5px 5px 10px rgba(0,0,0, .3);
+}
+
+.peliculas-culto .carousel-culto .pelicula.hover {
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+.peliculas-culto .carousel-culto .pelicula img {
+  width: 100%;
+  vertical-align: top;
+}
+/*full flechas*/
+
+/* Flechas de navegación para películas de terror */
+.peliculas-terror .contenedor-principal .flecha-izquierda,
+.peliculas-terror .contenedor-principal .flecha-derecha {
+  position: absolute;
+  border: none;
+  background: rgba(0,0,0,0.3);
+  font-size: 40px;
+  height: 50%;
+  top: calc(50% - 25%);
+  line-height: 40px;
+  width: 50px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 500;
+  transition: .2s ease all;
+}
+
+.peliculas-terror .contenedor-principal .flecha-izquierda:hover,
+.peliculas-terror .contenedor-principal .flecha-derecha:hover {
+  background: rgba(0,0,0, .9);
+}
+
+.peliculas-terror .contenedor-principal .flecha-izquierda {
+  left: 0;
+}
+
+.peliculas-terror .contenedor-principal .flecha-derecha {
+  right: 0;
+}
+
+/* Flechas de navegación para películas de comedia */
+.peliculas-comedia .contenedor-principal .flecha-izquierda,
+.peliculas-comedia .contenedor-principal .flecha-derecha {
+  position: absolute;
+  border: none;
+  background: rgba(0,0,0,0.3);
+  font-size: 40px;
+  height: 50%;
+  top: calc(50% - 25%);
+  line-height: 40px;
+  width: 50px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 500;
+  transition: .2s ease all;
+}
+
+.peliculas-comedia .contenedor-principal .flecha-izquierda:hover,
+.peliculas-comedia .contenedor-principal .flecha-derecha:hover {
+  background: rgba(0,0,0, .9);
+}
+
+.peliculas-comedia .contenedor-principal .flecha-izquierda {
+  left: 0;
+}
+
+.peliculas-comedia .contenedor-principal .flecha-derecha {
+  right: 0;
+}
+
+/* Flechas de navegación para películas de culto */
+.peliculas-culto .contenedor-principal .flecha-izquierda,
+.peliculas-culto .contenedor-principal .flecha-derecha {
+  position: absolute;
+  border: none;
+  background: rgba(0,0,0,0.3);
+  font-size: 40px;
+  height: 50%;
+  top: calc(50% - 25%);
+  line-height: 40px;
+  width: 50px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 500;
+  transition: .2s ease all;
+}
+
+.peliculas-culto .contenedor-principal .flecha-izquierda:hover,
+.peliculas-culto .contenedor-principal .flecha-derecha:hover {
+  background: rgba(0,0,0, .9);
+}
+
+.peliculas-culto .contenedor-principal .flecha-izquierda {
+  left: 0;
+}
+
+.peliculas-culto .contenedor-principal .flecha-derecha {
+  right: 0;
+}
+
+
+/* estilo series no tocar */
+
+#Episodios {
+  background-color: rgba(241, 11, 11, 0.822); /* Cambia esto por el color que desees */
+  color: #000000; /* Cambia esto por el color que desees */
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#Episodios h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+#seasons .se-t {
+  background-color: black; /* Cambia esto por el color que desees */
+  color: #fff; /* Cambia esto por el color que desees */
+  border-radius: 50%; /* Cambia esto por la forma que desees */
+  padding: 5px 10px;
+}
+.se_rating {
+  font-size: 14px;
+  color: #999; /* Cambia esto por el color que desees */
+}
+.lazy-loaded{
+  width: 230px;
+  height: 140px;
+
+}
+/* Estilos para las temporadas */
+.season {
+  margin-bottom: 20px;
+  border: 2px solid black; /* Borde para el recuadro de la temporada */
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.season-header {
+  margin-bottom: 10px;
+}
+
+.season-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Espacio entre los episodios */
+}
+
+.episode {
+  display: flex;
+  align-items: center;
+}
+
+.episode .imagen {
+  position: relative;
+  flex: 1;
+}
+
+.episode-details {
+  display: flex;
+  align-items: center;
+}
+
+.numerando {
+  font-weight: bold;
+  margin-right: 25px; /* Espacio entre el número y la línea vertical */
+  margin-left: 30px;
+}
+
+.vertical-line {
+  border-left: 1px solid black; /* Ajusta el color y grosor de la línea según tu preferencia */
+  height: 20px; /* Ajusta la altura de la línea según tus necesidades */
+  margin-right: 15px; /* Espacio entre la línea vertical y el texto del episodio */
+}
+
+.episodiotitle {
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+
+
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+}
+
+.episode:hover .play-button {
+  display: block;
+}
+
+/* Estilos para el contenedor del video */
+.page-content {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Ajusta el tamaño del video para dispositivos móviles */
+video {
+  width: 100%; /* Establece el ancho del video al 100% del contenedor */
+  max-width: 100%; /* Asegura que el video no desborde su contenedor */
+  height: auto; /* Permite que la altura del video se ajuste automáticamente */
+}
+
+/* Estilos para el contenedor de índice de capítulos */
+#Episodios {
+  padding: 10px;
+  text-align: center;
+  max-width: 600px; /* Ajusta el ancho máximo del contenedor */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+}
+
+/* Ajusta el tamaño de los episodios para dispositivos móviles */
+.episodios {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Ajusta el tamaño de las imágenes de los episodios */
+.episodios .episode .imagen img {
+   width: 150px; /* Establece un ancho fijo para las imágenes */
+  height: auto;
+  margin: 5px; /* Ajusta el margen entre las imágenes */
+}
+
+/* Estilos adicionales para pantallas más grandes */
+@media only screen and (min-width: 768px) {
+  .episodios .episode .imagen img {
+      width: auto; /* Restablece el tamaño de las imágenes a su valor predeterminado */
+      max-width: 100%; /* Asegura que las imágenes no desborden su contenedor */
+      height: auto; /* Permite que la altura se ajuste automáticamente */
+  }
+}
+/*Pantalla de carga*/
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7); /* Fondo semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Asegura que esté por encima de todo */
+}
+
+.spinner {
+  border: 4px solid black; /* Gris claro */
+  border-top: 4px solid #ff0000; /* Azul */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite; /* Animación de rotación */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#trailer-frame {
+  position: absolute; /* Posición absoluta para el iframe */
+  top: 75;
+  left: 5%;
+  width: 90%;
+  height: 75%;
+  box-sizing: border-box; /* Incluir los márgenes en el tamaño total */
+}
+
+
+#trailer-recuadro {
+  height: 485px;
+  position: relative;
+}
+/* Estilos para el recuadro de sinopsis */
+#recuadro-container-sinopsis {
+  margin-top: auto; /* Agrega un margen superior para desplazar el recuadro de sinopsis hacia abajo */
+  margin-bottom: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .trailer-recuadro {
+    border-radius: 0; /* Eliminar bordes redondeados */
+  }
+}
+
+#disqus_thread {
+  margin-top: 27px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Esto hace las peliculas responsive */
+#p-pelicula {
+  margin-top: 20px;
+  width: 800px; 
+  height: 468px;
+}
+
+@media screen and (max-width: 1200px) {
+  /* Para laptops grandes y pantallas medianas */
+  #p-pelicula {
+      width: 750px;
+      height: 440px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  /* Para laptops y pantallas medianas */
+  #p-pelicula {
+      width: 700px;
+      height: 413px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Para tablets en modo retrato y dispositivos móviles grandes */
+  #p-pelicula {
+      width: 600px;
+      height: 354px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  /* Para teléfonos móviles */
+  #p-pelicula {
+      width: 100%; /* Ancho completo del contenedor */
+      height: auto; /* Altura automática para mantener la proporción */
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  /* Para televisores grandes y pantallas de escritorio anchas */
+  #p-pelicula {
+      width: 1200px;
+      height: 675px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+  
+
+

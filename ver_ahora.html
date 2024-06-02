@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cave</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/thea cave icon.jpeg">
+    <script>
+        window.addEventListener("load", function() {
+        // Oculta la pantalla de carga
+        document.getElementById("loader").style.display = "none";
+        });
+        </script>
+    
+    </head>
+    <body>
+        <div id="loader">
+            <div class="spinner"></div>
+        </div>
+    <header class="header">
+        <div class="menu container">
+            <a href="#" class="logo">Cave</a>
+            <input type="checkbox" id="menu"/>
+            <label for="menu">
+                <img src="img/menu.png" class="menu-icono" alt="menu">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="inicio.html">Inicio</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="peliculas.html">Peliculas</a></li>
+                    <li><a href="Series.html">Series</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <a href="usuario.html" class="btn-1"><img src="img/logo persona2.png"alt="User" style="width: 24px; height: 24px;"></a>
+        </div>
+    </header>
+
+    <div class="page-content">
+        <h1><center>Serie 01</center></h1>
+        <center><video width="320" height="240"  autoplay muted loop controls>
+            <source src="Videos/cap 1 fiona and cake.mp4.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video></center>
+
+    </div>
+
+    <div class="page-content">
+        <h1><center>Video de prueba</center></h1>
+        <center><video width="320" height="240" autoplay muted loop controls>
+            <source src="Videos/Y2meta.app-Tengen vs Gyutaro (Final Fight) _ Demon Slayer Season 2 Episode 17 [4K 60FPS]-(480p).mp4" type="video/mp4" >
+            Tu navegador no soporta el elemento de video.
+        </video></center>
+
+    </div>
+
+    <!-- Pie de página -->
+    <footer class="footer container">
+        <h3>Cave</h3>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="#">Peliculas</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
