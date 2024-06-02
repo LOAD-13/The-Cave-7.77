@@ -8,7 +8,6 @@
     <link rel="icon" href="img/thea cave icon.jpeg">
     <style>
         #formulario {
-            display: none;
             position: fixed;
             top: 50%;
             left: 50%;
@@ -60,12 +59,12 @@
         .formulario button:hover {
             background-color: rgb(90, 9, 9);
         }
-        .header {
+        .header-content {
             display: none;
         }
         .registro-link {
             text-align: center;
-            margin-top: 260px;
+            margin-top: 20px;
         }
         .registro-link a {
             color: #007bff;
@@ -82,7 +81,7 @@
             document.getElementById("loader").style.display = "none";
 
             if (localStorage.getItem("loggedIn") === "true") {
-                document.getElementById("inicio").style.display = "block";
+                window.location.href = "inicio.html"; // Redirige automáticamente si ya está autenticado
             } else {
                 document.getElementById("formulario").style.display = "block";
             }
@@ -121,8 +120,7 @@
                     if (result.isConfirmed) {
                         localStorage.setItem("loggedIn", "true");
                         localStorage.setItem("currentUser", nombre); // Guardar el nombre del usuario
-                        document.getElementById("formulario").style.display = "none";
-                        document.getElementById("inicio").style.display = "block";
+                        window.location.href = "inicio.html"; // Redirigir a inicio.html
                     }
                 });
             } else {
@@ -146,48 +144,35 @@
     <div id="loader">
         <div class="spinner"></div>
     </div>
-    <header class="header" id="inicio">
+    <header class="header">
         <div class="menu container">
-            <a href="#" class="logo">Cave</a>
             <input type="checkbox" id="menu"/>
             <label for="menu">
                 <img src="img/menu.png" class="menu-icono" alt="menu">
             </label>
-            <nav class="navbar">
-                <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="nosotros.html">Nosotros</a></li>
-                    <li><a href="peliculas.html">Películas</a></li>
-                    <li><a href="Series.html">Series</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                </ul>
-            </nav>
-            <button onclick="logout()">Cerrar Sesión</button>
         </div>
         <div class="header-content container">
-            <h1>Bienvenido a Cave</h1>
+            <center><h1>Bienvenido a Cave</h1></center>
         </div>
     </header>
     <div class="formulario" id="formulario">
         <center><h1>Inicio de sesión</h1></center>
         <form onsubmit="validarLogin(event)">
             <div class="username">
-                <input type="text" id="nombre" name="nombre" placeholder="Por favor ingrese su nombre de usuario" required>
-            </div>
-            <div class="email">
-                <input type="email" id="correo" name="correo" placeholder="Por favor ingrese su correo electrónico" required>
-            </div>
-            <div class="password">
-                <input type="password" id="contrasena" name="contrasena" placeholder="Por favor ingrese su contraseña" required>
-            </div>
-            <div class="registrarse">
-                <button type="submit" class="btn-1">Iniciar sesión</button>
-            </div>
-        </form>
-    </div>
-    <div class="registro-link">
-        <p>¿No tienes cuenta? <a href="register.html">Regístrate aquí</a></p>
-    </div>
-</body>
-</html>
+            <input type="text" id="nombre" name="nombre" placeholder="Por favor ingrese su nombre de usuario" required>
+        </div>
+        <div class="email">
+            <input type="email" id="correo" name="correo" placeholder="Por favor ingrese su correo electrónico" required>
+        </div>
+        <div class="password">
+            <input type="password" id="contrasena" name="contrasena" placeholder="Por favor ingrese su contraseña" required>
+        </div>
+        <div class="registrarse">
+            <button type="submit" class="btn-1">Iniciar sesión</button>
+        </div>
+    </form>
+</div>
+<div class="registro-link">
+    <p>¿No tienes cuenta? <a href="register.html">Regístrate aquí</a></p>
+</div>
 
