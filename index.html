@@ -63,16 +63,35 @@
             display: none;
         }
         .registro-link {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .registro-link a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        .registro-link a:hover {
-            text-decoration: underline;
-        }
+    position: relative;
+    z-index: 1; /* Asegura que el texto esté delante de otros elementos */
+    text-align: center;
+    margin-top: 0%; /* Margen superior en porcentaje */
+}
+
+.registro-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.registro-link a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+@media screen and (max-width: 768px) {
+    .registro-link a {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .registro-link a {
+        font-size: 12px;
+    }
+}
     </style>
     <!-- SweetAlert2 library -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
