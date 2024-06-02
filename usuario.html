@@ -40,12 +40,22 @@
         function saveChanges() {
             const newName = document.getElementById('nameInput').value;
             const newDescription = document.getElementById('descriptionInput').value;
+            const facebookLink = document.getElementById('facebookInput').value;
+            const twitterLink = document.getElementById('twitterInput').value;
+            const instagramLink = document.getElementById('instagramInput').value;
 
             document.querySelector('.titulo').innerText = newName;
             document.querySelector('.descripcion').innerText = newDescription;
 
+            document.querySelector('.facebook').href = facebookLink;
+            document.querySelector('.twitter').href = twitterLink;
+            document.querySelector('.instagram').href = instagramLink;
+
             localStorage.setItem('profileName', newName);
             localStorage.setItem('profileDescription', newDescription);
+            localStorage.setItem('facebookLink', facebookLink);
+            localStorage.setItem('twitterLink', twitterLink);
+            localStorage.setItem('instagramLink', instagramLink);
 
             closeModal();
             Swal.fire({
@@ -60,6 +70,9 @@
             const savedName = localStorage.getItem('profileName');
             const savedDescription = localStorage.getItem('profileDescription');
             const savedAvatar = localStorage.getItem('avatarImage');
+            const savedFacebook = localStorage.getItem('facebookLink');
+            const savedTwitter = localStorage.getItem('twitterLink');
+            const savedInstagram = localStorage.getItem('instagramLink');
             const currentUser = localStorage.getItem('currentUser'); // Recuperar el nombre del usuario actual
 
             if (currentUser) {
@@ -77,6 +90,18 @@
             }
             if (savedAvatar) {
                 document.getElementById('avatarImage').src = savedAvatar;
+            }
+            if (savedFacebook) {
+                document.querySelector('.facebook').href = savedFacebook;
+                document.getElementById('facebookInput').value = savedFacebook;
+            }
+            if (savedTwitter) {
+                document.querySelector('.twitter').href = savedTwitter;
+                document.getElementById('twitterInput').value = savedTwitter;
+            }
+            if (savedInstagram) {
+                document.querySelector('.instagram').href = savedInstagram;
+                document.getElementById('instagramInput').value = savedInstagram;
             }
         }
 
@@ -109,7 +134,7 @@
                     <input type="file" id="avatarInput" accept="image/*" style="display: none;" onchange="updateAvatar(event)">
                 </div>
                 <button type="button" class="boton-portada" onclick="openModal()">
-                    <i class="far fa-image"></i> Cambiar Nombre de Perfil
+                    <i class="far fa-image"></i> Modificar Perfil
                 </button>
             </div>
         </div>
@@ -149,6 +174,12 @@
             <input type="text" id="nameInput" value="">
             <label for="descriptionInput">Descripción:</label>
             <textarea id="descriptionInput" rows="4">Escribe aquí tu descripción</textarea>
+            <label for="facebookInput">Facebook:</label>
+            <input type="text" id="facebookInput" placeholder="Enlace a Facebook">
+            <label for="twitterInput">Twitter:</label>
+            <input type="text" id="twitterInput" placeholder="Enlace a Twitter">
+            <label for="instagramInput">Instagram:</label>
+            <input type="text" id="instagramInput" placeholder="Enlace a Instagram">
             <button type="button" onclick="saveChanges()">Guardar Cambios</button>
         </div>
     </div>
