@@ -1383,6 +1383,106 @@ video {
   }
 }
 
+/* Animación de escalado para el hover de la imagen */
+.box-1:hover img, .box-2:hover img, .box-3:hover img {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Estilo para el overlay gris */
+.box-1:hover .overlay, .box-2:hover .overlay, .box-3:hover .overlay {
+  opacity: 1;
+}
+
+.box-1 .overlay, .box-2 .overlay, .box-3 .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+}
+
+/* Estilo para los géneros de las películas */
+.movie-genres {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Estilo para el botón de corazón */
+.heart-btn {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.heart-btn:before,
+.heart-btn:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15px;
+  width: 15px;
+  height: 24px;
+  border-radius: 15px 15px 0 0;
+  background: rgb(0, 0, 0);
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+.heart-btn:before {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+.heart-btn::after {
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+
+
+.heart-btn.filled:before,
+.heart-btn.filled:after {
+  background: red;
+}
+
+/* Asegurarse de que los elementos de la caja tengan posicionamiento relativo */
+.box-1, .box-2, .box-3 {
+  position: relative;
+  overflow: hidden;
+}
+/* Animación de llenado del corazón */
+@keyframes fillHeart {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.heart-btn.filled {
+  animation: fillHeart 0.5s ease-in-out forwards;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -343,3 +343,76 @@ html {
 color: black;
 font-weight: bold;
 }
+
+/* Estilo del contenedor principal */
+.movie-box {
+    background: linear-gradient(to right, red, black); /* Fondo degradado rojo a negro de izquierda a derecha */
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Contenedor de películas favoritas */
+.favorite-movies {          
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0 20px; /* Añadir espacio a los lados */
+}                                                                                                                                           
+
+/* Estilos para cada película favorita */
+.favorite-movie {
+    margin: 10px;   
+    width: 270px; /* Ancho deseado de cada película */
+    border-radius: 5px;
+    overflow: hidden;                                   
+    position: relative;
+}
+
+.favorite-movie img {
+    width: 100%;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.favorite-movie .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+/* Estilos para los géneros de las películas */
+.favorite-movie .movie-genres {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.favorite-movie .content {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+/* Estilo para las imágenes de las películas en hover */
+.favorite-movie img:hover {
+    transform: scale(1.2); /* Escalar la imagen al 110% en hover */
+}
+
+/* Estilos para el título de las películas favoritas */
+.favorite-movie h3 {
+    font-size: 18px; /* Tamaño de fuente más pequeño para el título */
+}
+
+/* Estilos para la descripción de las películas favoritas */
+.favorite-movie p {
+    font-size: 14px; /* Tamaño de fuente más pequeño para la descripción */
+}
+

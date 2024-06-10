@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="icon" href="img/thea cave icon.jpeg">
     <link rel="stylesheet" href="style_de_usuario.css">
-    
+
     <script>
         function changeAvatar() {
             const fileInput = document.getElementById('avatarInput');
@@ -105,13 +105,83 @@
             }
         }
 
+        document.addEventListener('DOMContentLoaded', function() {
+    const heartButtons = document.querySelectorAll('.heart-btn');
+
+    heartButtons.forEach(btn => {
+        const movieBox = btn.closest('.box-1');
+        const movieLink = movieBox.querySelector('a').getAttribute('href');
+        const movieTitle = movieBox.querySelector('h3').innerText;
+        const movieImage = movieBox.querySelector('img').getAttribute('src');
+        const movieDescription = movieBox.querySelector('p').innerText;
+
+        console.log('Link:', movieLink);
+        console.log('Title:', movieTitle);
+        console.log('Image:', movieImage);
+        console.log('Description:', movieDescription);
+
+        if (localStorage.getItem(`favorite-${movieLink}`)) {
+            btn.classList.add('filled');
+        }
+
+        btn.addEventListener('click', function(event) {
+            event.preventDefault();
+            btn.classList.toggle('filled');
+            if (btn.classList.contains('filled')) {
+                localStorage.setItem(`favorite-${movieLink}`, JSON.stringify({
+                    title: movieTitle,
+                    image: movieImage,
+                    description: movieDescription
+                }));
+            } else {
+                localStorage.removeItem(`favorite-${movieLink}`);
+            }
+        });
+
+        
+    });
+    
+});
+
+
+function loadFavoriteMovies() {
+    const favoriteMovies = Object.keys(localStorage).filter(key => key.startsWith('favorite-'));
+    const favoritesContainer = document.getElementById('favorite-movies');
+
+    favoriteMovies.forEach(movieKey => {
+        const movieData = JSON.parse(localStorage.getItem(movieKey));
+        const movieDiv = document.createElement('div');
+        movieDiv.classList.add('favorite-movie');
+        movieDiv.innerHTML = `
+            <div class="content">
+                <a href="${movieKey.substr(9)}">
+                    <img src="${movieData.image}" alt="Movie Image">
+                    <div class="overlay">
+                        <div class="heart-btn filled" onclick="toggleHeart(this, event)"></div>
+                    </div>
+                </a>
+                <h3>${movieData.title}</h3>
+                <p>${movieData.description}</p>
+            </div>
+        `;
+        favoritesContainer.appendChild(movieDiv);
+    });
+}
+
+window.onload = function() {
+    loadFavoriteMovies();
+};
+
         function logout() {
             localStorage.removeItem('loggedIn');
             localStorage.removeItem('currentUser'); // Limpiar el nombre del usuario al cerrar sesión
             window.location.href = 'index.html';
         }
 
-        window.onload = loadProfileDetails;
+        window.onload = function() {
+            loadProfileDetails();
+            loadFavoriteMovies();
+        };
 
         window.onclick = function (event) {
             const modal = document.getElementById('editModal');
@@ -163,7 +233,31 @@
                 <a href="" class="boton-redes instagram fab fa-instagram"><i class="icon-instagram"></i></a>
             </div>
         </div>
+        <br>
+        <br>
     </section>
+    
+    <!-- Películas Favoritas -->
+    <section id="favorite-movies-container" class="movies-container">
+        <div class="movie-box">
+            <h2 style="text-align: center; color: rgb(0, 0, 0);">Películas Favoritas</h2>
+            
+            <!-- Contenedor de películas favoritas -->
+            <div id="favorite-movies" class="favorite-movies"></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <h3>Cave</h3>
+        <ul>
+            <li><a href="inicio.html">Inicio</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="peliculas.html">Peliculas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <button class="logout-btn" onclick="logout()">Cerrar Sesión</button>
+    </footer>
+
 
     <!-- Modal para cambiar nombre y descripción -->
     <div id="editModal" class="modal">
@@ -184,16 +278,6 @@
         </div>
     </div>
 
-    <footer class="footer">
-        <h3>Cave</h3>
-        <ul>
-            <li><a href="inicio.html">Inicio</a></li>
-            <li><a href="nosotros.html">Nosotros</a></li>
-            <li><a href="peliculas.html">Peliculas</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-        <button class="logout-btn" onclick="logout()">Cerrar Sesión</button>
-    </footer>
 </body>
 
 </html>

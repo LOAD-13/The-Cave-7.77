@@ -6,11 +6,40 @@
     <title>The Cave</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="img/thea cave icon.jpeg">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const heartButtons = document.querySelectorAll('.heart-btn');
+        
+            heartButtons.forEach(btn => {
+                const movieBox = btn.closest('.box-1, .box-2, .box-3'); // Modificamos aquí para que busque en todos los tipos de cajas
+                const movieLink = movieBox.querySelector('a').getAttribute('href');
+                const movieTitle = movieBox.querySelector('h3').innerText;
+                const movieImage = movieBox.querySelector('img').getAttribute('src');
+                const movieDescription = movieBox.querySelector('p').innerText;
+        
+                if (localStorage.getItem(`favorite-${movieLink}`)) {
+                    btn.classList.add('filled');
+                }
+        
+                btn.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    btn.classList.toggle('filled');
+                    if (btn.classList.contains('filled')) {
+                        localStorage.setItem(`favorite-${movieLink}`, JSON.stringify({
+                            title: movieTitle,
+                            image: movieImage,
+                            description: movieDescription
+                        }));
+                    } else {
+                        localStorage.removeItem(`favorite-${movieLink}`);
+                    }
+                });
+            });
+        });
+        </script>
 </head>
 <body>
-
     <div id="loader">
-        
         <div class="spinner"></div>
     </div>
    
@@ -72,6 +101,10 @@
                 <div class="content">
                     <a href="peliculas/iroman3.html">
                     <img src="img/1.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Acción, Ciencia Ficción</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>Iron man 3</h3>
                     <p>
@@ -88,6 +121,10 @@
                 <div class="content">
                     <a href="peliculas/ThorLoveAndThunder.html">
                     <img src="img/2.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Acción, Aventura, Fantasía, Ciencia Ficción</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>Thor : Love and Thunder</h3>
                     <p>
@@ -102,6 +139,10 @@
                 <div class="content">
                     <a href="peliculas/ThorRagnarok.html">
                     <img src="img/3.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Acción, Aventura, Fantasía, Comedia, Ciencia Ficción</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>Thor : Ragnarok</h3>
                     <p>
@@ -116,6 +157,10 @@
                 <div class="content">
                     <a href="peliculas/ResidentEvil.html">
                     <img src="img/4.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Acción, Terror, Ciencia Ficción</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>Resident Evil : Bienvenidos a Raccoon City</h3>
                     <p>
@@ -130,6 +175,10 @@
                 <div class="content">
                     <a href="peliculas/La vieja guardia.html">
                     <img src="img/5.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Acción, Aventura, Fantasía, Ciencia Ficción</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>La vieja guardia</h3>
                     <p>
@@ -145,6 +194,10 @@
                 <div class="content">
                     <a href="peliculas/Ben10.html">
                     <img src="img/ben 10 logo ga.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Acción, Animación, Aventura, Ciencia Ficción</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>Ben 10</h3>
                     <p>           
@@ -158,6 +211,10 @@
                 <div class="content">
                     <a href="peliculas/El origen de un imperio.html">
                     <img src="img/7.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Acción, Drama, Historia, Bélico</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>El origen de un imperio</h3>
                     <p>
@@ -173,6 +230,10 @@
                 <div class="content">
                     <a href="peliculas/Project power .html">
                     <img src="img/8.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Acción, Ciencia Ficción, Thriller</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>Project Power</h3>
                     <p>
@@ -197,6 +258,10 @@
                 <div class="content">
                     <a href="peliculas/venom 2 carnage.html">
                     <img src="img/9.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Acción, Aventura, Fantasía, Ciencia Ficción</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>Venom 2 : Carnage liberado </h3>
                     <p>
@@ -211,6 +276,10 @@
                 <div class="content">
                     <a href="peliculas/venom.html">
                     <img src="img/10.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Acción, Aventura, Fantasía, Ciencia Ficción</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>Venom</h3>
                     <p>
@@ -225,6 +294,10 @@
                 <div class="content">
                     <a href="peliculas/Spidey NowayHome.html">
                     <img src="img/11.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Acción, Aventura, Fantasía, Ciencia Ficción</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>Spider-man : No way Home</h3>
                     <p>
@@ -239,6 +312,10 @@
                 <div class="content">
                     <a href="peliculas/infinity.html">
                     <img src="img/12.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Acción, Aventura, Fantasía, Ciencia Ficción</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>Avengers : Infinity War</h3>
                     <p>
@@ -251,6 +328,10 @@
                 <div class="content">
                     <a href="peliculas/endgame.html">
                     <img src="img/13.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Acción, Aventura, Fantasía, Ciencia Ficción</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                 </a>
                     <h3>Avengers EndGame</h3>
                     <p>
@@ -265,6 +346,10 @@
                 <div class="content">
                     <a href="peliculas/mad max.html">
                     <img src="img/14.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Acción, Aventura, Ciencia Ficción</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>Mad Max : Fury Road</h3>
                     <p>
@@ -280,6 +365,10 @@
                 <div class="content">
                     <a href="peliculas/durodematar.html">
                     <img src="img/15.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Acción, Thriller</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>Duro de matar 4.0</h3>
                     <p>
@@ -294,6 +383,10 @@
                 <div class="content">
                     <a href="peliculas/duro de matar good day.html">
                         <img src="img/16.jpg" alt="wu">
+                        <div class="overlay">
+                            <div class="movie-genres">Acción, Thriller</div>
+                            <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                        </div>
                     </a>
                     <h3>Duro de matar : Un buen dia para morir</h3>
                     <p>
@@ -321,6 +414,10 @@
                 <div class="content">
                     <a href="peliculas/Life.html">
                     <img src="img/17.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Ciencia Ficción, Terror, Suspense</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                      </a>
                     <h3>Life: Vida inteligente</h3>
                     <p>
@@ -334,6 +431,10 @@
                 <div class="content">
                     <a href="peliculas/EshoradeMorbosear.html">
                     <img src="img/18.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Acción, Aventura, Fantasía, Terror</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>Morbius</h3>
                     <p>
@@ -348,6 +449,10 @@
                 <div class="content">
                     <a href="peliculas/Wanda.html">
                     <img src="img/19.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Acción, Aventura, Comedia, Drama, Fantasía</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>WandaVision</h3>
                     <p>
@@ -362,6 +467,10 @@
                 <div class="content">
                     <a href="peliculas/The Batman.html">
                     <img src="img/20.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Acción, Aventura, Crimen, Drama, Misterio</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>The Batman</h3>
                     <p>
@@ -376,6 +485,10 @@
                 <div class="content">
                     <a href="peliculas/Rhapsody.html">
                     <img src="img/21.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Biografía, Drama, Música</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>Bohemian Rhapsody</h3>
                     <p>
@@ -390,6 +503,10 @@
                 <div class="content">
                     <a href="peliculas/StarWars.html">
                     <img src="img/22.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Acción, Aventura, Fantasía, Ciencia Ficción</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>Star Wars: Rogue One</h3>
                     <p>
@@ -403,6 +520,10 @@
                 <div class="content">
                     <a href="peliculas/Widow.html">
                     <img src="img/23.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Acción, Aventura, Espionaje, Ciencia Ficción</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                      </a>
                     <h3>Black Widow</h3>
                     <p>
@@ -416,6 +537,10 @@
                 <div class="content">
                     <a href="peliculas/BlackAdam.html">
                     <img src="img/24.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Acción, Aventura, Fantasía</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>Black Adam</h3>
                     <p>
@@ -429,6 +554,10 @@
                 <div class="content">
                     <a href="Bocchi Serie/bocchi cinema.html">
                     <img src="Bocchi Serie/imagenes/bocchi cultura.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Animación, Comedia, Drama, Música</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>Bocchi The Rock</h3>
                     <p>
@@ -443,6 +572,10 @@
                 <div class="content">
                     <a href="peliculas/robot dreams.html">
                     <img src="img/robot dreams poster2.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Animación, Aventura, Drama, Ciencia Ficción</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>Robot Dreams</h3>
                     <p>
@@ -456,6 +589,10 @@
                 <div class="content">
                     <a href="Frieren Serie/frieren.html">
                     <img src="Frieren Serie/imagenes/frieren poster.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Animación, Acción, Aventura, Drama, Fantasía</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>Souso no Frieren</h3>
                     <p>
@@ -469,6 +606,10 @@
                 <div class="content">
                     <a href="peliculas mias/tunel to summer.html">
                     <img src="img/tunel to summer poster.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Drama, Romance</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>Tunel to Summer</h3>
                     <p>
@@ -482,6 +623,10 @@
                 <div class="content">
                     <a href="Jujutsu Serie/jujutsu main.html">
                     <img src="Jujutsu Serie/img/jujutsu poster.jpg" alt="wu">
+                    <div class="overlay">
+                        <div class="movie-genres">Animación, Acción, Aventura, Comedia, Fantasía, Sobrenatural</div>
+                        <div class="heart-btn" onclick="toggleHeart(this, event)"></div>
+                    </div>
                     </a>
                     <h3>Jujutsu Kaisen</h3>
                     <p>
