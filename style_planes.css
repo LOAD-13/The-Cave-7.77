@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 50px;
+}
+
+.plans {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.plan {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    max-width: 90%;
+}
+
+.plan h2 {
+    margin-top: 0;
+}
+
+.plan p {
+    text-align: left;
+    margin: 10px 0;
+}
+
+.plan .price {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.plan .features {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.plan .features li {
+    margin-bottom: 10px;
+}
+
+.plan button {
+    width: 100%;
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.plan button:hover {
+    background-color: darkred;
+}
+
+.plan.selected {
+    border: 2px solid red;
+}

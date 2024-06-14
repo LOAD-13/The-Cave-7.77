@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configura tu Tarjeta</title>
+    <link rel="stylesheet" href="">
+    <link rel="icon" href="../img/thea cave icon.jpeg">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .input-group input:focus {
+            border-color: #007bff;
+        }
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .change-plan a {
+            color: #007bff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .change-plan a:hover {
+            text-decoration: underline;
+        }
+        .terms {
+            font-size: 12px;
+            color: #666;
+            margin-top: 20px;
+        }
+        .terms a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .terms a:hover {
+            text-decoration: underline;
+        }
+        .submit-button {
+            width: 100%;
+            padding: 15px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submit-button:hover {
+            background-color: darkred;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Configura tu tarjeta de crédito o débito</h1>
+        <div class="input-group">
+            <label for="cardNumber">Número de tarjeta</label>
+            <input type="text" id="cardNumber" placeholder="Número de tarjeta">
+        </div>
+        <div class="input-group">
+            <label for="expiryDate">Fecha de vencimiento</label>
+            <input type="text" id="expiryDate" placeholder="MM/AA">
+        </div>
+        <div class="input-group">
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" placeholder="CVV">
+        </div>
+        <div class="input-group">
+            <label for="cardHolderName">Nombre en la tarjeta</label>
+            <input type="text" id="cardHolderName" placeholder="Nombre en la tarjeta">
+        </div>
+        <div class="price" id="planPrice">S/ 34.90 al mes</div>
+        <div class="change-plan"><a href="planes.html">Cambiar Plan</a></div>
+        <div class="terms">
+            <p>Los pagos se procesarán internacionalmente. Es posible que se apliquen comisiones bancarias adicionales.</p>
+            <p>Al hacer clic en el botón «Iniciar membresía», aceptas nuestros <a href="#">Términos de uso</a> y nuestra <a href="#">Declaración de privacidad</a>, y declaras que tienes más de 18 años. Puedes cancelar la membresía en cualquier momento para evitar cargos en el futuro.</p>
+        </div>
+        <button class="submit-button" id="submitButton">Iniciar membresía</button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const selectedPlan = localStorage.getItem('selectedPlan');
+            let planPrice = 'S/ 34.90 al mes';
+
+            if (selectedPlan === 'planPremium') {
+                planPrice = 'S/ 44.90 al mes';
+            } else if (selectedPlan === 'planBasico') {
+                planPrice = 'S/ 24.90 al mes';
+            }
+
+            const planPriceElement = document.getElementById('planPrice');
+            if (planPriceElement) {
+                planPriceElement.textContent = planPrice;
+            }
+
+            const cardNumberInput = document.getElementById('cardNumber');
+            const cvvInput = document.getElementById('cvv');
+
+            cardNumberInput.addEventListener('input', function() {
+                this.value = this.value.replace(/\D/g, '').substring(0, 16);
+            });
+
+            cvvInput.addEventListener('input', function() {
+                this.value = this.value.replace(/\D/g, '').substring(0, 3);
+            });
+
+            document.getElementById('submitButton').addEventListener('click', function(event) {
+                event.preventDefault();
+                const cardNumber = cardNumberInput.value;
+                const expiryDate = document.getElementById('expiryDate').value;
+                const cvv = cvvInput.value;
+                const cardHolderName = document.getElementById('cardHolderName').value;
+
+                // Validar entradas
+                if (!cardNumber || cardNumber.length !== 16) {
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Número de tarjeta inválido. Debe tener 16 dígitos.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                } else if (!expiryDate || !/^\d{2}\/\d{2}$/.test(expiryDate)) {
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Fecha de vencimiento inválida. Debe ser en formato MM/AA.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                } else if (!cvv || cvv.length !== 3) {
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'CVV inválido. Debe tener 3 dígitos.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                } else if (!cardHolderName) {
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'El nombre en la tarjeta no puede estar vacío.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Pago exitoso',
+                        text: 'Su tarjeta ha sido configurada correctamente.',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = 'index.html';
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

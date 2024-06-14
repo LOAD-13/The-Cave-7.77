@@ -10,6 +10,19 @@
     <link rel="icon" href="img/thea cave icon.jpeg">
     <link rel="stylesheet" href="style_de_usuario.css">
 
+    <style>
+        .plan-detail {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #fff;
+            background-color:rgb(218, 1, 1); /* Green background */
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+    </style>
+
     <script>
         function changeAvatar() {
             const fileInput = document.getElementById('avatarInput');
@@ -74,6 +87,8 @@
             const savedTwitter = localStorage.getItem('twitterLink');
             const savedInstagram = localStorage.getItem('instagramLink');
             const currentUser = localStorage.getItem('currentUser'); // Recuperar el nombre del usuario actual
+            const currentUserEmail = localStorage.getItem('currentUserEmail'); // Recuperar el correo del usuario actual
+            const selectedPlan = localStorage.getItem('selectedPlan'); // Recuperar el plan seleccionado
 
             if (currentUser) {
                 document.querySelector('.titulo').innerText = currentUser;
@@ -81,6 +96,7 @@
                 document.querySelector('.titulo').innerText = savedName;
                 document.getElementById('nameInput').value = savedName;
             }
+            
             if (savedDescription) {
                 document.querySelector('.descripcion').innerText = savedDescription;
                 document.getElementById('descriptionInput').value = savedDescription;
@@ -103,79 +119,82 @@
                 document.querySelector('.instagram').href = savedInstagram;
                 document.getElementById('instagramInput').value = savedInstagram;
             }
+
+            // Mostrar el plan seleccionado
+            if (selectedPlan) {
+                let planText = '';
+                switch (selectedPlan) {
+                    case 'planPremium':
+                        planText = 'Plan Premium - S/ 44.90 al mes';
+                        break;
+                    case 'planBasico':
+                        planText = 'Plan Básico - S/ 24.90 al mes';
+                        break;
+                    default:
+                        planText = 'Plan Estándar - S/ 34.90 al mes';
+                        break;
+                }
+                document.getElementById('planDetail').innerText = planText;
+            }
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-    const heartButtons = document.querySelectorAll('.heart-btn');
+            const heartButtons = document.querySelectorAll('.heart-btn');
 
-    heartButtons.forEach(btn => {
-        const movieBox = btn.closest('.box-1');
-        const movieLink = movieBox.querySelector('a').getAttribute('href');
-        const movieTitle = movieBox.querySelector('h3').innerText;
-        const movieImage = movieBox.querySelector('img').getAttribute('src');
-        const movieDescription = movieBox.querySelector('p').innerText;
+            heartButtons.forEach(btn => {
+                const movieBox = btn.closest('.box-1');
+                const movieLink = movieBox.querySelector('a').getAttribute('href');
+                const movieTitle = movieBox.querySelector('h3').innerText;
+                const movieImage = movieBox.querySelector('img').getAttribute('src');
+                const movieDescription = movieBox.querySelector('p').innerText;
 
-        console.log('Link:', movieLink);
-        console.log('Title:', movieTitle);
-        console.log('Image:', movieImage);
-        console.log('Description:', movieDescription);
+                console.log('Link:', movieLink);
+                console.log('Title:', movieTitle);
+                console.log('Image:', movieImage);
+                console.log('Description:', movieDescription);
 
-        if (localStorage.getItem(`favorite-${movieLink}`)) {
-            btn.classList.add('filled');
-        }
+                if (localStorage.getItem(`favorite-${movieLink}`)) {
+                    btn.classList.add('filled');
+                }
 
-        btn.addEventListener('click', function(event) {
-            event.preventDefault();
-            btn.classList.toggle('filled');
-            if (btn.classList.contains('filled')) {
-                localStorage.setItem(`favorite-${movieLink}`, JSON.stringify({
-                    title: movieTitle,
-                    image: movieImage,
-                    description: movieDescription
-                }));
-            } else {
-                localStorage.removeItem(`favorite-${movieLink}`);
-            }
+                btn.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    btn.classList.toggle('filled');
+                    if (btn.classList.contains('filled')) {
+                        localStorage.setItem(`favorite-${movieLink}`, JSON.stringify({
+                            title: movieTitle,
+                            image: movieImage,
+                            description: movieDescription
+                        }));
+                    } else {
+                        localStorage.removeItem(`favorite-${movieLink}`);
+                    }
+                });
+            });
         });
 
-        
-    });
-    
-});
+        function loadFavoriteMovies() {
+            const favoriteMovies = Object.keys(localStorage).filter(key => key.startsWith('favorite-'));
+            const favoritesContainer = document.getElementById('favorite-movies');
 
-
-function loadFavoriteMovies() {
-    const favoriteMovies = Object.keys(localStorage).filter(key => key.startsWith('favorite-'));
-    const favoritesContainer = document.getElementById('favorite-movies');
-
-    favoriteMovies.forEach(movieKey => {
-        const movieData = JSON.parse(localStorage.getItem(movieKey));
-        const movieDiv = document.createElement('div');
-        movieDiv.classList.add('favorite-movie');
-        movieDiv.innerHTML = `
-            <div class="content">
-                <a href="${movieKey.substr(9)}">
-                    <img src="${movieData.image}" alt="Movie Image">
-                    <div class="overlay">
-                        <div class="heart-btn filled" onclick="toggleHeart(this, event)"></div>
+            favoriteMovies.forEach(movieKey => {
+                const movieData = JSON.parse(localStorage.getItem(movieKey));
+                const movieDiv = document.createElement('div');
+                movieDiv.classList.add('favorite-movie');
+                movieDiv.innerHTML = `
+                    <div class="content">
+                        <a href="${movieKey.substr(9)}">
+                            <img src="${movieData.image}" alt="Movie Image">
+                            <div class="overlay">
+                                <div class="heart-btn filled" onclick="toggleHeart(this, event)"></div>
+                            </div>
+                        </a>
+                        <h3>${movieData.title}</h3>
+                        <p>${movieData.description}</p>
                     </div>
-                </a>
-                <h3>${movieData.title}</h3>
-                <p>${movieData.description}</p>
-            </div>
-        `;
-        favoritesContainer.appendChild(movieDiv);
-    });
-}
-
-window.onload = function() {
-    loadFavoriteMovies();
-};
-
-        function logout() {
-            localStorage.removeItem('loggedIn');
-            localStorage.removeItem('currentUser'); // Limpiar el nombre del usuario al cerrar sesión
-            window.location.href = 'index.html';
+                `;
+                favoritesContainer.appendChild(movieDiv);
+            });
         }
 
         window.onload = function() {
@@ -188,6 +207,13 @@ window.onload = function() {
             if (event.target === modal) {
                 closeModal();
             }
+        }
+
+        function logout() {
+            localStorage.removeItem('loggedIn');
+            localStorage.removeItem('currentUser'); // Limpiar el nombre del usuario al cerrar sesión
+            localStorage.removeItem('currentUserEmail'); // Limpiar el correo del usuario al cerrar sesión
+            window.location.href = 'index.html';
         }
     </script>
 </head>
@@ -215,16 +241,7 @@ window.onload = function() {
             </div>
             <div class="perfil-usuario-footer">
                 <ul class="lista-datos">
-                    <li><i class="icono fas fa-map-signs"></i> Dirección de usuario:</li>
-                    <li><i class="icono fas fa-phone-alt"></i> Teléfono:</li>
-                    <li><i class="icono fas fa-briefcase"></i> Trabaja en:</li>
-                    <li><i class="icono fas fa-building"></i> Cargo:</li>
-                </ul>
-                <ul class="lista-datos">
-                    <li><i class="icono fas fa-map-marker-alt"></i> Ubicación:</li>
-                    <li><i class="icono fas fa-calendar-alt"></i> Fecha de nacimiento:</li>
-                    <li><i class="icono fas fa-user-check"></i> Registro:</li>
-                    <li><i class="icono fas fa-share-alt"></i> Redes sociales:</li>
+                    <li><i class="icono fas fa-calendar-alt"></i> Tiempo de suscripción: <span id="planDetail" class="plan-detail">Plan no seleccionado</span></li>
                 </ul>
             </div>
             <div class="redes-sociales">
@@ -281,3 +298,4 @@ window.onload = function() {
 </body>
 
 </html>
+

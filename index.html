@@ -139,6 +139,7 @@
                     if (result.isConfirmed) {
                         localStorage.setItem("loggedIn", "true");
                         localStorage.setItem("currentUser", nombre); // Guardar el nombre del usuario
+                        localStorage.setItem("currentUserEmail", correo); // Guardar el correo electrónico del usuario
                         window.location.href = "inicio.html"; // Redirigir a inicio.html
                     }
                 });
@@ -155,6 +156,7 @@
         function logout() {
             localStorage.removeItem('loggedIn');
             localStorage.removeItem('currentUser');
+            localStorage.removeItem('currentUserEmail'); // Limpiar el correo del usuario al cerrar sesión
             window.location.href = 'index.html';
         }
     </script>
