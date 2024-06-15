@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selecciona tu Plan</title>
-    <link rel="stylesheet" href="st">
+    <link rel="stylesheet" href="s">
     <link rel="icon" href="../img/thea cave icon.jpeg">
     <style>
         body {
@@ -89,6 +89,7 @@
             background-color: darkred;
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         function seleccionarPlan(event, planId) {
             const plans = document.querySelectorAll('.plan');
@@ -98,10 +99,38 @@
             const selectedPlan = document.getElementById(planId);
             selectedPlan.classList.add('selected');
             localStorage.setItem('selectedPlan', planId);
+
+            let planName = '';
+            switch (planId) {
+                case 'planPremium':
+                    planName = 'Premium';
+                    break;
+                case 'planEstandar':
+                    planName = 'Estándar';
+                    break;
+                case 'planBasico':
+                    planName = 'Básico';
+                    break;
+            }
+
+            Swal.fire({
+                title: 'Plan Seleccionado',
+                text: `Estás seleccionando el plan ${planName}`,
+                icon: 'info',
+                confirmButtonText: 'OK'
+            });
         }
 
         function irAPagar() {
-            window.location.href = 'pagar.html';
+            Swal.fire({
+                title: 'Redirigiendo',
+                text: 'Serás redirigido a la ventana de pago',
+                icon: 'success',
+                timer: 2000,
+                showConfirmButton: false
+            }).then(() => {
+                window.location.href = 'pagar.html';
+            });
         }
     </script>
 </head>
@@ -109,7 +138,7 @@
     <div class="container">
         <h1>Selecciona el plan ideal para ti</h1>
         <div class="plans">
-            <div id="planPremium" class="plan selected">
+            <div id="planPremium" class="plan">
                 <h2>Premium</h2>
                 <p class="price">S/ 44.90</p>
                 <ul class="features">
@@ -151,5 +180,6 @@
     </div>
 </body>
 </html>
+
 
 
