@@ -8,29 +8,137 @@
     <link rel="stylesheet" href="style.css">
     <style>
         .redes-sociales a img {
-  transition: transform 0.3s ease;
-}
-
-.redes-sociales a img:hover {
-  transform: scale(1.2);
-}
+            transition: transform 0.3s ease;
+        }
+        .redes-sociales a img:hover {
+            transform: scale(1.2);
+        }
+        #formulario {
+            position: relative;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 1000px;
+            max-width: 90%;
+            text-align: center;
+            color: #333;
+        }
+        .formulario {
+            text-align: center;
+        }
+        .formulario h1 {
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+        .formulario input[type="text"],
+        .formulario input[type="email"],
+        .formulario textarea {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        .formulario input[type="text"]:focus,
+        .formulario input[type="email"]:focus,
+        .formulario textarea:focus {
+            border-color: #007bff;
+        }
+        .formulario button {
+            width: 100%;
+            height: 40px;
+            background-color: red;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .formulario button:hover {
+            background-color: rgb(90, 9, 9);
+        }
+        .header-content {
+            display: none;
+        }
+        .registro-link {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            margin-top: 370px;
+        }
+        .registro-link a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        .registro-link a:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+        @media screen and (max-width: 768px) {
+            .registro-link a {
+                font-size: 14px;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .registro-link a {
+                font-size: 12px;
+            }
+        }
     </style>
-<script>
-    window.addEventListener("load", function() {
-    // Oculta la pantalla de carga
-    document.getElementById("loader").style.display = "none";
-    });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        window.addEventListener("load", function() {
+            // Oculta la pantalla de carga
+            document.getElementById("loader").style.display = "none";
+        });
 
+        function validarMensaje(event) {
+            event.preventDefault();
+            const nombre = document.getElementById("nombre").value.trim();
+            const correo = document.getElementById("correo").value.trim();
+            const asunto = document.getElementById("asunto").value.trim();
+            const mensaje = document.getElementById("mensaje").value.trim();
+
+            if (!nombre || !correo || !asunto || !mensaje) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Por favor complete todos los campos',
+                });
+                return;
+            }
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Enviado',
+                text: 'Estamos revisando su mensaje',
+            });
+
+            // Limpiar los campos del formulario
+            document.getElementById("nombre").value = '';
+            document.getElementById("correo").value = '';
+            document.getElementById("asunto").value = '';
+            document.getElementById("mensaje").value = '';
+
+            // Aquí puedes agregar el código para enviar el formulario, si es necesario.
+            // event.target.submit(); // Descomentar si se necesita enviar el formulario.
+        }
+    </script>
 </head>
 <body>
     <div id="loader">
         <div class="spinner"></div>
     </div>
     <header class="header">
-                
         <div class="menu container">
-
             <a href="inicio.html" class="logo">Cave</a>
             <input type="checkbox" id="menu"/>
             <label for="menu">
@@ -45,24 +153,18 @@
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
-            <a href="usuario.html" class="btn-1"><img src="img/logo persona2.png"alt="User" style="width: 24px; height: 24px;"></a>
+            <a href="usuario.html" class="btn-1"><img src="img/logo persona2.png" alt="User" style="width: 24px; height: 24px;"></a>
         </div>
-
         <div class="header-content container">
-
             <div class="header-1">
-                
                 <a href="ver_ahora.html" class="btn-2" id="play-video-1">Ver ahora</a>
-                
             </div>
             <div class="header-2">
                 <h1>Las mejores<br>peliculas </h1>
                 <img src="img/play.png" alt="we">
             </div>
         </div>
-
     </header>
-
     <div class="contacto">
         <h2>Información de contacto</h2>
         <p>Teléfono: 01 949 234 515</p>
@@ -70,7 +172,6 @@
         <p>Instagram: instagram.com/TheCave/</p>
         <p>Twitter: twitter.com/TheCave</p>
         <p>Facebook: facebook.com/TheCave</p>
-
     </div>
     <div class="redes-sociales">
         <a href="https://www.instagram.com/loa_069/" target="_blank">
@@ -84,27 +185,40 @@
         </a>
     </div>
     <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.890975240836!2d-77.0290080884132!3d-11.912675188264974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105d0641274fc93%3A0x7ee017afcff3d574!2sAv.%20Felipe%20Pinglo%20Alva%20308%2C%20Comas%2015324!5e0!3m2!1ses-419!2spe!4v1714164225047!5m2!1ses-419!2spe" 
-class="btn-visitanos" target="IFramePrin">Visítanos</a>
-
-<div class="map-container">
-    <iframe name="IFramePrin" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.890975240836!2d-77.0290080884132!3d-11.912675188264974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105d0641274fc93%3A0x7ee017afcff3d574!2sAv.%20Felipe%20Pinglo%20Alva%20308%2C%20Comas%2015324!5e0!3m2!1ses-419!2spe!4v1714164225047!5m2!1ses-419!2spe" 
-    width="550" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div>
-
-
-
-<footer class="footer container">
-    <h3>Cave</h3>
-    <ul>
-        <li><a href="inicio.html">Inicio</a></li>
-        <li><a href="nosotros.html">Nosotros</a></li>
-        <li><a href="peliculas.html">Peliculas</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-    </ul>
-
-</footer>   
+    class="btn-visitanos" target="IFramePrin">Visítanos</a>
+    <div class="map-container">
+        <iframe name="IFramePrin" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.890975240836!2d-77.0290080884132!3d-11.912675188264974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105d0641274fc93%3A0x7ee017afcff3d574!2sAv.%20Felipe%20Pinglo%20Alva%20308%2C%20Comas%2015324!5e0!3m2!1ses-419!2spe!4v1714164225047!5m2!1ses-419!2spe" 
+        width="550" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="formulario" id="formulario">
+        <center><h1>Envío de Mensaje</h1></center>
+        <form onsubmit="validarMensaje(event)">
+            <div class="nombre">
+                <input type="text" id="nombre" name="nombre" placeholder="Por favor ingrese su nombre" required>
+            </div>
+            <div class="email">
+                <input type="email" id="correo" name="correo" placeholder="Por favor ingrese su correo electrónico" required>
+            </div>
+            <div class="asunto">
+                <input type="text" id="asunto" name="asunto" placeholder="Asunto" required>
+            </div>
+            <div class="mensaje">
+                <textarea id="mensaje" name="mensaje" placeholder="Escriba su mensaje" rows="5" required></textarea>
+            </div>
+            <div class="enviar">
+                <button type="submit" class="btn-1">Enviar Mensaje</button>
+            </div>
+        </form>
+    </div>
+    <footer class="footer container">
+        <h3>Cave</h3>
+        <ul>
+            <li><a href="inicio.html">Inicio</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="peliculas.html">Peliculas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </footer>
     <script src="nuevoscript.js"></script>
 </body>
-
-
 </html>
